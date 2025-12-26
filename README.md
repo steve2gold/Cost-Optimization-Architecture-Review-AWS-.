@@ -198,3 +198,167 @@ Optimization Recommendations:
 - Periodically review Trusted Advisor recommendations
 
 
+
+
+
+# Cost Analysis Findings
+
+This document summarizes observations identified during a cost and usage review of the AWS environment. The review was conducted using AWS Cost Explorer, CloudWatch, and Trusted Advisor, following the AWS Well-Architected Framework (Cost Optimization Pillar).
+
+---
+
+## Summary of Findings
+
+The analysis revealed opportunities to improve cost efficiency, monitoring coverage, and governance controls. While the environment operates correctly, several optimization gaps were identified that are common in early-stage or unmanaged AWS accounts.
+
+---
+
+## Detailed Findings
+
+### 1. Low EC2 Utilization
+- CloudWatch metrics show consistently low CPU utilization over extended periods.
+- Average CPU usage remained well below recommended thresholds for optimal instance sizing.
+- Indicates potential over-provisioning of compute resources.
+
+**Impact:**
+- Paying for unused compute capacity.
+- Increased operational cost without performance benefit.
+
+---
+
+### 2. Lack of Cost Visibility Before Configuration
+- Cost Explorer was not enabled by default.
+- No historical cost analysis or trend tracking was initially available.
+- Limited visibility into service-level spending prior to setup.
+
+**Impact:**
+- Difficult to identify cost drivers early.
+- Harder to forecast or control monthly spend.
+
+---
+
+### 3. No Budget Alerts Initially Configured
+- No active AWS Budgets were configured before review.
+- Accoun
+
+
+
+
+
+
+# Cost Optimization Recommendations
+
+This document provides actionable recommendations based on the findings from the AWS cost and usage review. All recommendations align with the AWS Well-Architected Framework, particularly the Cost Optimization pillar.
+
+---
+
+## 1. Right-Size EC2 Instances
+
+### Recommendation
+Evaluate current EC2 instance types and resize them according to actual utilization metrics.
+
+### Actions
+- Review CloudWatch CPU utilization trends
+- Identify consistently underutilized instances
+- Resize to smaller instance types where appropriate
+
+### Benefit
+- Reduces unnecessary compute spending
+- Improves cost-to-performance efficiency
+
+---
+
+## 2. Enable and Enforce AWS Budgets
+
+### Recommendation
+Maintain active cost budgets with alert thresholds.
+
+### Actions
+- Configure monthly budget limits
+- Set alert notifications at 80% and 100%
+- Review alerts regularly
+
+### Benefit
+- Prevents unexpected billing surprises
+- Improves financial governance and accountability
+
+---
+
+## 3. Improve Monitoring and Alerting
+
+### Recommendation
+Expand CloudWatch alarm coverage to detect inefficiencies and failures early.
+
+### Actions
+- Create alarms for:
+  - Low CPU utilization
+  - Instance status check failures
+  - Abnormal metric behavior
+- Route alerts through Amazon SNS
+
+### Benefit
+- Enables proactive response
+- Reduces operational risk
+- Improves system reliability
+
+---
+
+## 4. Review Trusted Advisor Regularly
+
+### Recommendation
+Perform periodic reviews of Trusted Advisor checks.
+
+### Actions
+- Review cost optimization checks monthly
+- Address flagged underutilized resources
+- Monitor service limit warnings
+
+### Benefit
+- Continuous alignment with AWS best practices
+- Easy identification of cost-saving opportunities
+
+---
+
+## 5. Consider Long-Term Cost Optimization Options
+
+### Recommendation
+For stable or long-running workloads, evaluate discounted pricing models.
+
+### Options
+- Compute Savings Plans
+- EC2 Reserved Instances
+
+### Benefit
+- Significant long-term cost reduction
+- Predictable monthly expenses
+
+---
+
+## 6. Establish Cost Governance Practices
+
+### Recommendation
+Introduce basic governance controls as part of daily operations.
+
+### Actions
+- Perform monthly cost reviews
+- Document cost decisions
+- Maintain visibility dashboards
+- Use tagging for resource ownership (future enhancement)
+
+### Benefit
+- Sustainable and scalable cost management process
+- Improved accountability
+
+---
+
+## Summary
+
+Implementing these recommendations will:
+- Reduce unnecessary AWS spending
+- Improve visibility and control
+- Strengthen operational discipline
+- Align the environment with AWS Well-Architected principles
+
+These practices reflect real-world expectations for Cloud Engineers, Support Engineers, and Solutions Architects responsible for managing cloud environments efficiently.
+
+
